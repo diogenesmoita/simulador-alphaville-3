@@ -19,8 +19,25 @@ header{background:linear-gradient(120deg,#0b0b0b,#241e17);border-bottom-color:va
 .contact-panel a{color:#241b0f;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 @media print{.actions,.contact-cta{display:none!important}.brand-logo{height:110px;width:200px}header{padding:10px!important}body{background:#fff}.panel{box-shadow:none}}
 
+/* Impressão/PDF: preservar a logomarca como imagem real, sem modo de mesclagem. */
+@media print {
+  .brand-logo { display:block!important; visibility:visible!important; opacity:1!important;
+    mix-blend-mode:normal!important; filter:none!important;
+    width:230px!important; height:135px!important; object-fit:cover!important;
+    object-position:center 49%!important; background:#0b0b0b!important;
+    -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
+  header { background:#fff!important; color:#24211d!important; -webkit-print-color-adjust:exact;print-color-adjust:exact; }
+  header h1,header .eyebrow,header .brand-name,header p {color:#24211d!important;}
+  .brand-logo {break-inside:avoid;page-break-inside:avoid;}
+}
+
 /* Captação de clientes */
 [hidden]{display:none!important}.lead-wrap{max-width:620px;margin:35px auto 65px;padding:0 18px}.lead-card{background:#fff;border:1px solid #dfd8ca;border-radius:18px;padding:clamp(22px,5vw,40px);box-shadow:0 16px 44px #00000013}.lead-kicker{font-size:.75rem;letter-spacing:.18em;color:#a78342;font-weight:800}.lead-card h2{font-size:clamp(1.55rem,4vw,2.15rem);margin:10px 0}.lead-card>p{color:#5f615c;margin-bottom:24px}.lead-card .field{margin-bottom:17px}.lead-card input:not([type=checkbox]){width:100%;padding:13px;border-radius:9px;border:1px solid #b9b9b3;font:inherit}.lead-card input:focus{outline:2px solid #c5a46a;outline-offset:1px}.consent{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;margin:18px 0;color:#444;cursor:pointer}.consent input{margin-top:5px;flex-shrink:0}.lead-btn{width:100%;padding:14px 18px;border:0;border-radius:10px;background:#153c31;color:white;font-weight:750;font-size:1rem;cursor:pointer}.lead-btn:hover{background:#245a49}.lead-secondary{margin-top:12px;width:100%;padding:12px;background:white;color:#153c31;border:1px solid #153c31;border-radius:10px;cursor:pointer}.lead-note{font-size:.8rem;color:#62645e;line-height:1.55}.lead-confirm-title{font-weight:750;font-size:1.1rem}#leadConfirm{border-top:1px solid #e8e2d7;margin-top:20px;padding-top:16px}@media print{#cadastroArea{display:none!important}#simuladorArea{display:block!important}}
+
+/* Correção do alinhamento da autorização LGPD: neutraliza estilos gerais de inputs */
+.lead-card label.consent{display:flex;align-items:flex-start;justify-content:flex-start;gap:12px;width:100%;margin:18px 0 20px;line-height:1.5;text-align:left;font-weight:400;cursor:pointer}
+.lead-card label.consent input[type="checkbox"]{appearance:auto;-webkit-appearance:checkbox;display:block;box-sizing:border-box;flex:0 0 19px;width:19px!important;min-width:19px;max-width:19px;height:19px!important;min-height:19px;margin:3px 0 0;padding:0;border-radius:3px;accent-color:#a98545}
+.lead-card label.consent span{display:block;flex:1 1 0;min-width:0;overflow-wrap:break-word;font-size:.88rem;line-height:1.55}
 </style>
 </head>
 <body>
